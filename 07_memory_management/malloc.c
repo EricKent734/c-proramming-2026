@@ -145,3 +145,28 @@ int main() {
 //
 //
 /* Code snippet from google ai : This  should be used for learning purposes*/
+
+//
+//
+//
+// Code snippet 2 : about Malloc:
+// using char
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void main() {
+  char *mem_alloc;
+  // memory allocated dynamically
+  mem_alloc = malloc(15 * sizeof(char));
+
+  if (mem_alloc == NULL) {
+    printf("Couldn't able to allocate requested memory\n");
+  } else {
+    strcpy(mem_alloc, "w3schools.in");
+  }
+
+  printf("Dynamically allocated memory content : %s\n", mem_alloc);
+  free(mem_alloc);
+}
