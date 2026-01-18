@@ -81,3 +81,43 @@ int main() {
   printf("%s Updated GPA: %.1f\n", s1.name, s1.gpa);
   return 0;
 }
+
+// code snippet 4
+//
+//
+//
+//
+//
+//
+//
+
+#include <stdio.h>
+
+// Function takes a pointer to the balance
+// Returns 1 if successful, 0 if not enough money
+int withdraw(float *balancePtr, float amount) {
+  if (*balancePtr >= amount) {
+    *balancePtr =
+        *balancePtr - amount; // Subtracting from the original variable
+    return 1;
+  } else {
+    return 0; // Transaction failed
+  }
+}
+
+int main() {
+  float mySavings = 1000.00;
+  float spend = 200.00;
+
+  printf("Initial Balance: $%.2f\n", mySavings);
+
+  // We pass '&mySavings' so the function can edit the real money
+  if (withdraw(&mySavings, spend)) {
+    printf("Withdrawal successful!\n");
+  } else {
+    printf("Declined! Not enough funds.\n");
+  }
+
+  printf("Final Balance: $%.2f\n", mySavings);
+  return 0;
+}
