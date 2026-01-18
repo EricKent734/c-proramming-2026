@@ -102,4 +102,3 @@ int getint(int *pn) {
 
 ---
 
-Would you like me to also **diagram the swap function with pointers** (showing how `px` and `py` reference `a` and `b` in memory)? That would make the concept of pointer-based argument passing very visual.
