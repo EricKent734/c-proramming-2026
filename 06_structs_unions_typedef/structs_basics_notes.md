@@ -132,3 +132,92 @@ screen.pt1.x;  // Access nested member
 
 ---
 
+## 📘 Expanded Summary: Structures with Arrow Operator
+
+### 1. **Dot Operator (`.`) Recap**
+- Used when you have a **structure variable** (not a pointer).
+- Example:
+  ```c
+  struct point pt = {3, 4};
+  printf("%d,%d", pt.x, pt.y);   // Access members with dot
+  ```
+
+---
+
+### 2. **Arrow Operator (`->`)**
+- Used when you have a **pointer to a structure**.
+- It is shorthand for dereferencing the pointer and then accessing a member.
+- Equivalent:
+  ```c
+  (*ptr).member   // Long form
+  ptr->member     // Short form (preferred)
+  ```
+
+---
+
+### 3. **Declaring and Using Structure Pointers**
+```c
+#include <stdio.h>
+
+struct point {
+    int x;
+    int y;
+};
+
+int main() {
+    struct point pt = {10, 20};
+    struct point *p = &pt;   // p points to pt
+
+    // Access using dot operator
+    printf("Dot: %d,%d\n", pt.x, pt.y);
+
+    // Access using arrow operator
+    printf("Arrow: %d,%d\n", p->x, p->y);
+
+    // Modify values using arrow operator
+    p->x = 30;
+    p->y = 40;
+    printf("Modified: %d,%d\n", pt.x, pt.y);
+
+    return 0;
+}
+```
+
+---
+
+### 4. **Why Arrow Operator Matters**
+- Cleaner syntax when dealing with pointers.
+- Commonly used in:
+  - **Dynamic memory allocation** (`malloc`).
+  - **Linked lists** and other pointer-based data structures.
+  - Functions that receive structure pointers as arguments.
+
+---
+
+### 5. **Nested Structures with Arrow Operator**
+```c
+struct rect {
+    struct point pt1;
+    struct point pt2;
+};
+
+int main() {
+    struct rect screen = {{0,0}, {100,200}};
+    struct rect *sp = &screen;
+
+    // Access nested members using arrow
+    printf("pt1.x = %d\n", sp->pt1.x);
+    printf("pt2.y = %d\n", sp->pt2.y);
+
+    return 0;
+}
+```
+
+---
+
+## 💡 Key Takeaways
+- Use `.` when working with **structure variables**.
+- Use `->` when working with **structure pointers**.
+- `ptr->member` is shorthand for `(*ptr).member`.
+- Essential for pointer-heavy data structures like **linked lists, trees, and dynamic objects**.
+
